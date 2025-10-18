@@ -46,9 +46,9 @@ remappedSrc/
 forge*changelog.txt
 
 # Used for testing against other mods
-libs/*
+#libs/*
 output/
-libs/
+#libs/
 .metadata
 .vscode
 .settings
