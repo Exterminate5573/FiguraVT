@@ -13,3 +13,4 @@ Connect your Figura Avatar to VTube Studio and link your facial expressions and 
 - [ ] Custom VTubeStudio API using nv-websocket-client
 - [ ] More events
 - [ ] Configuration GUI
+- [ ] Tracking software support (Apparently VTube Studio doesn't have an event for this)
