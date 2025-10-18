@@ -1,4 +1,4 @@
-package org.figuramc.exampleplugin;
+package dev.exterminate.figuravt;
 
 import dev.architectury.injectables.annotations.ExpectPlatform;
 

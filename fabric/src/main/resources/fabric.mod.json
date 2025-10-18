@@ -11,27 +11,18 @@
     "homepage": "https://fabricmc.net/",
     "sources": "https://github.com/FabricMC/fabric-example-mod"
   },
-  "license": "Insert License Here",
+  "license": "MIT",
   "icon": "assets/examplemod/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [
-      "org.figuramc.exampleplugin.fabric.ExamplePluginFabric"
+      "dev.exterminate.figuravt.fabric.ExamplePluginFabric"
     ],
     "figura_api": [
-      "org.figuramc.exampleplugin.ExamplePlugin"
-    ],
-    "figura_permissions": [
-      "org.figuramc.exampleplugin.ExamplePermissionsPlugin"
-    ],
-    "figura_screen": [
-      "org.figuramc.exampleplugin.ExampleScreensPlugin"
-    ],
-    "figura_vanilla_part": [
-      "org.figuramc.exampleplugin.ExampleVanillaPartPlugin"
+      "dev.exterminate.figuravt.FiguraVT"
     ],
     "figura_example": [
-      "org.figuramc.exampleplugin.ExampleEventPlugin"
+      "dev.exterminate.figuravt.EventPlugin"
     ]
   },
   "depends": {

@@ -1,15 +1,20 @@
-package org.figuramc.exampleplugin;
+package dev.exterminate.figuravt;
 
-import org.figuramc.exampleplugin.screens.ExampleScreen;
 import org.figuramc.figura.avatar.Avatar;
 import org.figuramc.figura.entries.FiguraAPI;
 import org.figuramc.figura.entries.annotations.FiguraAPIPlugin;
 import org.figuramc.figura.lua.LuaWhitelist;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import ru.alexander.api.VTubeStudioAPI;
+import ru.alexander.api.listeners.ResponseListener;
+import ru.alexander.api.responses.ErrorResponse;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 
@@ -21,14 +26,18 @@ import java.util.List;
  */
 @FiguraAPIPlugin
 @LuaWhitelist
-public class ExamplePlugin implements FiguraAPI {
-    public static final String PLUGIN_ID = "examplefiguraplugin";
+public class FiguraVT implements FiguraAPI {
+
+    public static final String PLUGIN_ID = "figura-vt";
     public static final Logger LOGGER = LoggerFactory.getLogger(PLUGIN_ID);
     private Avatar avatar;
 
-    public ExamplePlugin() {
+    public FiguraVT() {
+
     }
-    public ExamplePlugin(Avatar avatar) {
+
+    public FiguraVT(Avatar avatar) {
+        super();
         this.avatar = avatar;
     }
 
@@ -36,12 +45,16 @@ public class ExamplePlugin implements FiguraAPI {
      * You can do common things on init here
      */
     public static void init() {
-        LOGGER.info("Hello multi-loader world!");
+        VTSAPI.auth();
+    }
+
+    public static void close() {
+        VTSAPI.api.close();
     }
 
     @Override
     public FiguraAPI build(Avatar avatar) {
-        return new ExamplePlugin(avatar);
+        return new FiguraVT(avatar);
     }
 
     @Override
@@ -72,8 +85,7 @@ public class ExamplePlugin implements FiguraAPI {
     }
 
     public static final Class<?>[] EXAMPLE_PLUGIN_CLASSES = new Class[] {
-            ExamplePlugin.class,
-            ExampleScreen.class
+            FiguraVT.class
     };
 
 }

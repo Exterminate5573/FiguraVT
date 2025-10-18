@@ -1,4 +1,4 @@
-package org.figuramc.exampleplugin;
+package dev.exterminate.figuravt;
 
 import com.mojang.datafixers.util.Pair;
 import org.figuramc.figura.avatar.Avatar;
@@ -6,6 +6,7 @@ import org.figuramc.figura.entries.FiguraEvent;
 import org.figuramc.figura.entries.annotations.FiguraEventPlugin;
 import org.figuramc.figura.lua.LuaWhitelist;
 import org.figuramc.figura.lua.api.event.LuaEvent;
+import org.figuramc.figura.lua.docs.LuaFieldDoc;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -18,13 +19,15 @@ import java.util.function.Function;
  *  Entrypoint in fabric.mod.json: figura_event
  */
 @FiguraEventPlugin
-public class ExampleEventPlugin implements FiguraEvent {
+public class EventPlugin implements FiguraEvent {
 
     @LuaWhitelist
-    public static LuaEvent EXAMPLE = new LuaEvent();
+    @LuaFieldDoc("events.vts_animation")
+    public static LuaEvent VTSANIMATION = new LuaEvent();
+
     @Override
     public String getID() {
-        return ExamplePlugin.PLUGIN_ID;
+        return FiguraVT.PLUGIN_ID;
     }
 
     /**
@@ -34,6 +37,6 @@ public class ExampleEventPlugin implements FiguraEvent {
      */
     @Override
     public Collection<Pair<String, LuaEvent>> getEvents() {
-        return Collections.singleton(new Pair<>("EXAMPLE", EXAMPLE));
+        return Collections.singleton(new Pair<>("VTSANIMATION", VTSANIMATION));
     }
 }

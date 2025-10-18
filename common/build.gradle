@@ -3,7 +3,7 @@ architectury {
 }
 
 loom {
-    accessWidenerPath = file("src/main/resources/exampleplugin.accesswidener")
+    accessWidenerPath = file("src/main/resources/figuravt.accesswidener")
 }
 
 
@@ -23,7 +23,20 @@ dependencies {
     // We depend on fabric loader here to use the fabric @Environment annotations and get the mixin dependencies
     // Do NOT use other classes from fabric loader
     modImplementation "net.fabricmc:fabric-loader:${rootProject.fabric_loader_version}"
+
+    //VTS API
+    implementation files("../libs/jVTSAPI-1.0.jar")
+    implementation("org.java-websocket:Java-WebSocket:1.5.6")
 }
+
+jar {
+    from(zipTree("../libs/jVTSAPI-1.0.jar"))
+    doFirst {
+        def javaWebSocketJar = configurations.runtimeClasspath.find { it.name.contains("Java-WebSocket") }
+        if (javaWebSocketJar) {
+            from(zipTree(javaWebSocketJar))
+        }
+    }}
 
 publishing {
     publications {
