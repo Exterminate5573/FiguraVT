@@ -13,30 +13,22 @@ import java.util.Collections;
 import java.util.List;
 import java.util.function.Function;
 
-/**
- * Example Event Plugin
- *  Annotation required for Forge to Locate and Load the Plugin
- *  Entrypoint in fabric.mod.json: figura_event
- */
+@LuaWhitelist
 @FiguraEventPlugin
 public class EventPlugin implements FiguraEvent {
 
     @LuaWhitelist
-    @LuaFieldDoc("events.vts_animation")
+    @LuaFieldDoc("events.figuravt.vts_animation")
     public static LuaEvent VTSANIMATION = new LuaEvent();
 
     @Override
     public String getID() {
-        return FiguraVT.PLUGIN_ID;
+        return "figuravt";
     }
 
-    /**
-     *  Available so that other mods can add in Events to Figura's Event API.
-     *  Refer to ExampleMixin on how to call your events from a mixin, or for a more
-     *  concrete example refer to Figura itself
-     */
     @Override
     public Collection<Pair<String, LuaEvent>> getEvents() {
-        return Collections.singleton(new Pair<>("VTSANIMATION", VTSANIMATION));
+        FiguraVT.LOGGER.info("Registering VTS Animation Event");
+        return Collections.singleton(new Pair<>("VTS_ANIMATION", VTSANIMATION));
     }
 }

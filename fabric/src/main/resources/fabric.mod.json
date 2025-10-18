@@ -8,8 +8,7 @@
     "${authors}"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "sources": "https://github.com/Exterminate5573/FiguraVT"
   },
   "license": "MIT",
   "icon": "assets/examplemod/icon.png",
@@ -21,7 +20,7 @@
     "figura_api": [
       "dev.exterminate.figuravt.FiguraVT"
     ],
-    "figura_example": [
+    "figura_event": [
       "dev.exterminate.figuravt.EventPlugin"
     ]
   },

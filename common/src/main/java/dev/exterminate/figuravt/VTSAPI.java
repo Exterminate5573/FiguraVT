@@ -3,9 +3,6 @@ package dev.exterminate.figuravt;
 import org.figuramc.figura.FiguraMod;
 import org.figuramc.figura.avatar.Avatar;
 import org.figuramc.figura.avatar.AvatarManager;
-import org.figuramc.figura.lua.api.event.LuaEvent;
-import org.luaj.vm2.LuaValue;
-import org.luaj.vm2.Varargs;
 import ru.alexander.api.VTubeStudioAPI;
 import ru.alexander.api.listeners.ResponseListener;
 import ru.alexander.api.responses.ErrorResponse;
@@ -25,14 +22,14 @@ public class VTSAPI {
     private static final AnimationEventCall animationEventCall = new AnimationEventCall(false, false,
             null,
             event -> {
-                FiguraVT.LOGGER.info("Animation Event: {}", event.getAnimationName());
+                FiguraVT.LOGGER.debug("Animation Event: {}", event.getAnimationName());
 
                 Avatar localPlayer = AvatarManager.getAvatarForPlayer(FiguraMod.getLocalPlayerUUID());
                 if (localPlayer == null || localPlayer.luaRuntime == null)
                     return;
 
                 AnimationEventData localEventData = new AnimationEventData(event.getAnimationName());
-                localPlayer.run("VTSANIMATION", localPlayer.render, localEventData);
+                localPlayer.run("FIGURAVT.VTS_ANIMATION", localPlayer.render, localEventData);
             });
 
     public static void auth() {

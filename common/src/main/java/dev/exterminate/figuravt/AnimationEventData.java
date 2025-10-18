@@ -16,7 +16,7 @@ public class AnimationEventData {
 
     @LuaWhitelist
     @LuaMethodDoc("vts_animation_event.get_name")
-    public String getAnimationName() {
+    public String get_name() {
         return animationName;
     }
 }

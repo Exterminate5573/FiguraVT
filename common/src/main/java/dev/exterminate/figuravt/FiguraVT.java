@@ -17,13 +17,6 @@ import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-
-/**
- * Example API Plugin
- *  @FiguraAPIPlugin Annotation required for Forge to Locate and Load the Plugin
- *  Entrypoint in fabric.mod.json: figura_api
- *  Fabric requires entrypoints have an empty constructor, Figura will not use it
- */
 @FiguraAPIPlugin
 @LuaWhitelist
 public class FiguraVT implements FiguraAPI {
@@ -68,7 +61,7 @@ public class FiguraVT implements FiguraAPI {
     @Override
     public Collection<Class<?>> getWhitelistedClasses() {
         List<Class<?>> classesToRegister = new ArrayList<>();
-        for (Class<?> aClass : EXAMPLE_PLUGIN_CLASSES) {
+        for (Class<?> aClass : FIGURAVT_PLUGIN_CLASSES) {
             if (aClass.isAnnotationPresent(LuaWhitelist.class)) {
                 classesToRegister.add(aClass);
             }
@@ -84,8 +77,10 @@ public class FiguraVT implements FiguraAPI {
         return List.of();
     }
 
-    public static final Class<?>[] EXAMPLE_PLUGIN_CLASSES = new Class[] {
-            FiguraVT.class
+    public static final Class<?>[] FIGURAVT_PLUGIN_CLASSES = new Class[] {
+            FiguraVT.class,
+            EventPlugin.class,
+            AnimationEventData.class
     };
 
 }
