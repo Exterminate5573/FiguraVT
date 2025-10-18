@@ -10,7 +10,7 @@
   "contact": {
     "sources": "https://github.com/Exterminate5573/FiguraVT"
   },
-  "license": "MIT",
+  "license": "LGPL-2.1-or-later",
   "icon": "assets/examplemod/icon.png",
   "environment": "*",
   "entrypoints": {
